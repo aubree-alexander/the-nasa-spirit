@@ -1,6 +1,7 @@
 var photo_key = 'UaWaPX64ifKiFlemQ73fWGXNMRw5uwk1H5Bt5Feg';
 var weather_key = 'CECYA3AQSMBYUHF9N4VMZ53CK';
-zipCode = "";
+var zipCode = "";
+var forecastContainer =$("#forecastContainer");
 
 fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=1`)
     
@@ -34,12 +35,13 @@ $('.search').click(function (event){
 
 
 
-fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast&key=${weather_key}` 
-  )
-  .then(function (response) {
+fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/53716?key=CECYA3AQSMBYUHF9N4VMZ53CK`)
+  .then(function(response) {
     console.log(response);
-    return response.json()
+    response.json().then(function(data) {
+        console.log(data);
+    });
   })
   .catch(function(error) {
-    // console.log(error);
+    console.log(error);
   });
