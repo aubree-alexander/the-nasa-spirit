@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" src="./style.css" />
-    <link rel ="stylesheet" src="https://cdn.tailwindcss.com"/>
     <title>Nasa Spirit</title>
 </head>
 <body>
 
+    <main class="realative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
+        <h1 class="text-white mx-auto font-size">What is the weather like at...</h1>
+        <input type="text" class="form-control mx-auto" id="zipCodeInput" placeholder="Enter Zip Code Here..." />
 
+        <div class="mx-auto text-white" id="nasaExplain">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque nesciunt officiis, aliquam nisi dolor, ab dicta animi sit aut, voluptatem obcaecati! Quia minima ad doloremque repellendus, fugit impedit quam cumque?</div>
+
+
+    </main>
 
 
 
