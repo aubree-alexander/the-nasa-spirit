@@ -1,11 +1,10 @@
 // global variables
-
 var photo_key = 'UaWaPX64ifKiFlemQ73fWGXNMRw5uwk1H5Bt5Feg';
 var weather_key = 'CECYA3AQSMBYUHF9N4VMZ53CK';
 var zipCode = "53716";
 var forecastContainer =$("#forecastContainer");
 
-// to display nasa background image
+// display nasa background image
 function backgroundImg() {
 fetch(`https://api.nasa.gov/planetary/apod?api_key=${photo_key}&count=1`)
     .then(function (repsonse) {
@@ -13,18 +12,17 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${photo_key}&count=1`)
     })
     .then(function (data) {
       console.log(data)
-        $("#explanationHolder").html(data[0].explanation);
+        $("#nasaExplain").html(data[0].explanation);
         $("#dateHolder").html(data[0].date);
         $("#photoHolder").find('img').attr("src", data[0].hdurl);
         // $("photoHolder").append("")
         $("body").css("background-image", "url(" + data[0].hdurl + ")")
-   
-
     })
     .catch(function(error) {
         console.log(error)
     });
 }
+
 
 // api key for weather api
 function zipSearch(){
