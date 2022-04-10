@@ -1,8 +1,11 @@
+
+
 // global variables
 var photo_key = 'UaWaPX64ifKiFlemQ73fWGXNMRw5uwk1H5Bt5Feg';
 var weather_key = 'CECYA3AQSMBYUHF9N4VMZ53CK';
 var zipCode = "53716";
 var forecastContainer =$("#forecastContainer");
+var currentDate = dayjs().format('YYYY-MM-DD')
 
 // display nasa background image
 function backgroundImg() {
@@ -67,7 +70,22 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
   });
 }
 
+
+
+function timelineWeather() {
+  fetch (`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Madison/${currentDate}?key=${weather_key}`)
+  .then(function(response) {
+    response.json()
+  })
+  .then(function(data) {
+    console.log(data)
+  })
+}
+
+
+
 // function calls
 backgroundImg();
 zipSearch();
 weatherForecast();
+timelineWeather()
