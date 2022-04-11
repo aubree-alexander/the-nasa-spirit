@@ -1,0 +1,33 @@
+* {
+    font-family: 'Anek Tamil', sans-serif;
+}
+
+#mainForm {
+    background-color: rgba(181, 213, 214, 0.57);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+#formHolder {
+    display: flex;
+    justify-content: center;
+}
+
+#explanationHolder {
+    background-color: rgba(181, 213, 214, 0.57);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#photoDescriptionIntro {
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.form-control {
+    opacity: 50%;
+}
+

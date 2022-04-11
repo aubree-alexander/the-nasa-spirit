@@ -6,24 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"/>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-    <link rel="stylesheet" src="./style.css" />
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
     <title>Nasa Spirit</title>
 </head>
 <body>
 
-    <main class="realative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12 searchSection">
-        <h1 class="text-white mx-auto font-size">What is the weather like at...</h1>
-        <div class="mx-auto input-group-append btnPar">
-            <input type="text" class="form-control mx-auto zipCodeInput, " id="zipCodeInput" placeholder="Enter Zip Code Here..." />
-            <button class="btn btn-primary search" type="button"><i class="fas fa-search"></i></button>
-        </div>
+    <section id="jumbotron"></section>
+    <main class="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12 searchSection">
+
+        <section id="formHolder">
+            <form id="mainForm" class="flex flex-col justify-center flex-wrap">
+                <h3 class="mx-auto font-size">What is the weather like at...</h3>
+                <div class="mx-auto input-group-append btnPar">
+                    <input type="text" class="form-control mx-auto zipCodeInput, " id="zipCodeInput" placeholder="Enter Zip Code Here..." />
+                    <button class="btn btn-primary search" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </section>
 
         
         <div class="max-w-sm rounded overflow-hidden shadow-lg" id="forecastContainer"></div>
     </main>
-    <div class="container mx-auto text-white" id="nasaExplain">
-   
-    </div>
+    <section id="explanationHolder" class="stackTop">
+        <h3 id="photoDescriptionIntro">Photo description:</h3>
+        <div class="container mx-auto text-white" id="nasaExplain"></div>
+    </section>
 
 
 
