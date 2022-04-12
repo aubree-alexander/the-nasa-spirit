@@ -21,15 +21,15 @@
         <section id="formHolder">
             <form id="mainForm" class="flex flex-col justify-center flex-wrap">
                 <h3 class="mx-auto font-size">What is the weather like at...</h3>
-                <div class="mx-auto input-group-append btnPar">
-                    <input type="text" class="form-control mx-auto zipCodeInput, " id="zipCodeInput" placeholder="Enter Zip Code Here..." />
-                    <button class="btn btn-primary search" type="button"><i class="fas fa-search"></i></button>
+                <div class="mx-auto input-group-append">
+                    <input name="zipCodeInput" type="text" class="form-control mx-auto zipCodeInput, " id="zipCodeInput" placeholder="Enter Zip Code Here..." autofocus="true"/>
+                    <button class="btn btn-blue" id="search" type="submit"><i class="fas fa-search"></i></button>
                 </div>
             </form>
         </section>
 
         
-        <div class="max-w-sm rounded overflow-hidden shadow-lg" id="forecastContainer"></div>
+        <div class="row" id="forecastContainer"></div>
     </main>
     <section id="explanationHolder" class="stackTop">
         <h3 id="photoDescriptionIntro">Photo description:</h3>

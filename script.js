@@ -2,6 +2,7 @@
 var photo_key = 'UaWaPX64ifKiFlemQ73fWGXNMRw5uwk1H5Bt5Feg';
 var weather_key = 'CECYA3AQSMBYUHF9N4VMZ53CK';
 var zipCode = "53716";
+var zipHistory = [];
 var forecastContainer =$("#forecastContainer");
 
 // display nasa background image
@@ -26,12 +27,14 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${photo_key}&count=1`)
 
 // api key for weather api
 function zipSearch(){
-$('.search').click(function (event){
+$('#search').click(function(event){
     event.preventDefault();
-    zipCode = $(this).parent('.btnPar').siblings('.zipCodeInput').val();
+    zipCode = $('#zipCodeInput').val();
     if (zipCode === "") {
         return;
-    }
+    };
+    zipHistory.push(zipCode);
+    localStorage.setItem('zipCode', JSON.stringify(zipHistory));
     console.log(event);
 
     // Once we are able to fetch all the right weather data we will call the function below to generate the desired zipcode and can remove weatherForecast() at the bottom of the page
@@ -46,21 +49,55 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
     response.json().then(function(data) {
         console.log(data);
 
+        var forcastArray = response.list;
+        var weatherDataArray = [];
+        $.each(forcastArray, function(i, value) {
+            console.log(this);
+            weatherInfo = {
+                datetime: value.days[0].datetime,
+                conditions: value.days[0].conditions,
+                cloudcover: value.days[0].cloudcover,
+                icon: value.days[0].icon,
+                sunset: value.days[0].sunset,
+                moonphase: value.days[0].moonphase
+            };
+            weatherDataArray.push(weatherInfo);
+        });
+        for (var i = 0; i < weatherDataArray.length; i++) {
+          var divCard = $('<div>');
+          divCard.attr('class', 'max-w-sm rounded overflow-hidden shadow-lg');
+          divCard.attr('style', 'max-width: 200px;');
+          forecastContainer.append(divCard);
 
-        // I was trying to make an array of all the data we want to pull and display in forecastContainer, but no luck finding the right path T_T
+          var divHeader = $('<div>');
+          divHeader.attr('class', 'font-bold text-xl mb-2');
 
-        // var forcastArray = response.data.list;
-        // var weatherDataArray = [];
-        // $.each(forcastArray, function(i, value) {
-        //     console.log(this);
-        //     testObj = {
-        //         datetime: value.dt_txt.split("")[0],
-        //         cloudcover: ,
+          var date = weatherDataArray[i].datetime;
+          divHeader.text(date);
+          divCard.append(divHeader);
 
-        //     }
+          var divBody = $('<div>');
+          divBody.attr('class', 'card-body');
+          divCard.append(divBody);
 
-        // })
-    })
+          var divIcon = $('<img>');
+          divIcon.attr('class', 'icon');
+          divIcon.attr('src', weatherDataArray[i].icon);
+          divBody.append(divIcon);
+
+          var conditionsP = $('<p>').text(`Conditions: ${weatherArray[i].conditions}.`);
+          divBody.append(conditionsP);
+
+          var cloudcoverP = $('<p>').text(`Cloudcover: ${weatherArray[i].cloudcover}`);
+          divBody.append(cloudcoverP);
+
+          var sunsetP = $('<p>').text(`Sunset: ${weatherArray[i].sunset}`);
+          divBody.append(sunsetP);
+
+          var moonphaseP = $('<p>').text(`Moonphase: ${weatherArray[i].moonphase}`);
+          divBody.append(moonphaseP);
+        };
+    });
   })
   .catch(function(error) {
     console.log(error);
