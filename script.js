@@ -46,58 +46,62 @@ $('#search').click(function(event){
 function weatherForecast() {
 fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${zipCode}?key=${weather_key}`)
   .then(function(response) {
-    response.json().then(function(data) {
-        console.log(data);
+    return response.json()
+  })
+  .then(function(data) {
+    console.log(data);
 
-        var forcastArray = response.list;
-        var weatherDataArray = [];
-        $.each(forcastArray, function(i, value) {
-            console.log(this);
-            weatherInfo = {
-                datetime: value.days[0].datetime,
-                conditions: value.days[0].conditions,
-                cloudcover: value.days[0].cloudcover,
-                icon: value.days[0].icon,
-                sunset: value.days[0].sunset,
-                moonphase: value.days[0].moonphase
-            };
-            weatherDataArray.push(weatherInfo);
-        });
-        for (var i = 0; i < weatherDataArray.length; i++) {
-          var divCard = $('<div>');
-          divCard.attr('class', 'max-w-sm rounded overflow-hidden shadow-lg');
-          divCard.attr('style', 'max-width: 200px;');
-          forecastContainer.append(divCard);
+    var forecastArray = data.days;
+    var weatherDataArray = [];
+    console.log(forecastArray);
 
-          var divHeader = $('<div>');
-          divHeader.attr('class', 'font-bold text-xl mb-2');
-
-          var date = weatherDataArray[i].datetime;
-          divHeader.text(date);
-          divCard.append(divHeader);
-
-          var divBody = $('<div>');
-          divBody.attr('class', 'card-body');
-          divCard.append(divBody);
-
-          var divIcon = $('<img>');
-          divIcon.attr('class', 'icon');
-          divIcon.attr('src', weatherDataArray[i].icon);
-          divBody.append(divIcon);
-
-          var conditionsP = $('<p>').text(`Conditions: ${weatherArray[i].conditions}.`);
-          divBody.append(conditionsP);
-
-          var cloudcoverP = $('<p>').text(`Cloudcover: ${weatherArray[i].cloudcover}`);
-          divBody.append(cloudcoverP);
-
-          var sunsetP = $('<p>').text(`Sunset: ${weatherArray[i].sunset}`);
-          divBody.append(sunsetP);
-
-          var moonphaseP = $('<p>').text(`Moonphase: ${weatherArray[i].moonphase}`);
-          divBody.append(moonphaseP);
+    $.each(forecastArray, function(i, data) {
+        weatherInfo = {
+            datetime: data.datetime,
+            conditions: data.conditions,
+            cloudcover: data.cloudcover,
+            icon: data.icon,
+            sunset: data.sunset,
+            moonphase: data.moonphase
         };
+        weatherDataArray.push(weatherInfo);
+        console.log(weatherInfo);
     });
+    
+    for (var i = 0; i < weatherDataArray.length; i++) {
+      var divCard = $('<div>');
+      divCard.attr('class', 'max-w-sm rounded overflow-hidden shadow-lg');
+      divCard.attr('style', 'max-width: 200px;');
+      forecastContainer.append(divCard);
+
+      var divHeader = $('<div>');
+      divHeader.attr('class', 'font-bold text-xl mb-2');
+
+      var date = weatherDataArray[i].datetime;
+      divHeader.text(date);
+      divCard.append(divHeader);
+
+      var divBody = $('<div>');
+      divBody.attr('class', 'card-body');
+      divCard.append(divBody);
+
+      var divIcon = $('<img>');
+      divIcon.attr('class', 'icon');
+      divIcon.attr('src', weatherDataArray[i].icon);
+      divBody.append(divIcon);
+
+      var conditionsP = $('<p>').text(`Conditions: ${weatherArray[i].conditions}.`);
+      divBody.append(conditionsP);
+
+      var cloudcoverP = $('<p>').text(`Cloudcover: ${weatherArray[i].cloudcover}`);
+      divBody.append(cloudcoverP);
+
+      var sunsetP = $('<p>').text(`Sunset: ${weatherArray[i].sunset}`);
+      divBody.append(sunsetP);
+
+      var moonphaseP = $('<p>').text(`Moonphase: ${weatherArray[i].moonphase}`);
+      divBody.append(moonphaseP);
+    };
   })
   .catch(function(error) {
     console.log(error);
