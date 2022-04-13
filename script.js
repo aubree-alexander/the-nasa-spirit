@@ -38,9 +38,9 @@ $('#search').click(function(event){
     console.log(event);
 
     // Once we are able to fetch all the right weather data we will call the function below to generate the desired zipcode and can remove weatherForecast() at the bottom of the page
-    // weatherForecast()
+    weatherForecast()
 });
-}
+};
 
 // to pull and display weather forecast
 function weatherForecast() {
@@ -53,7 +53,7 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 
     var forecastArray = data.days;
     var weatherDataArray = [];
-    console.log(forecastArray);
+    // console.log(forecastArray);
 
     $.each(forecastArray, function(i, data) {
         weatherInfo = {
@@ -65,17 +65,17 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
             moonphase: data.moonphase
         };
         weatherDataArray.push(weatherInfo);
-        console.log(weatherInfo);
+        // console.log(weatherInfo);
     });
     
-    for (var i = 0; i < weatherDataArray.length; i++) {
+    for (var i = 0; i < 5; i++) {
       var divCard = $('<div>');
       divCard.attr('class', 'max-w-sm rounded overflow-hidden shadow-lg');
-      divCard.attr('style', 'max-width: 200px;');
+      divCard.attr('style', 'max-width: 400px;');
       forecastContainer.append(divCard);
 
       var divHeader = $('<div>');
-      divHeader.attr('class', 'font-bold text-xl mb-2');
+      divHeader.attr('class', 'divHeader font-bold text-xl mb-2');
 
       var date = weatherDataArray[i].datetime;
       divHeader.text(date);
@@ -88,19 +88,20 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
       var divIcon = $('<img>');
       divIcon.attr('class', 'icon');
       divIcon.attr('src', weatherDataArray[i].icon);
-      divBody.append(divIcon);
+      // divBody.append(divIcon);
 
-      var conditionsP = $('<p>').text(`Conditions: ${weatherArray[i].conditions}.`);
-      divBody.append(conditionsP);
+      var conditionsP = $('<p>').text(`Conditions: ${weatherDataArray[i].conditions}.`);
+      // divBody.append(conditionsP);
 
-      var cloudcoverP = $('<p>').text(`Cloudcover: ${weatherArray[i].cloudcover}`);
-      divBody.append(cloudcoverP);
+      var cloudcoverP = $('<p>').text(`Cloudcover: ${weatherDataArray[i].cloudcover}`);
+      // divBody.append(cloudcoverP);
 
-      var sunsetP = $('<p>').text(`Sunset: ${weatherArray[i].sunset}`);
-      divBody.append(sunsetP);
+      var sunsetP = $('<p>').text(`Sunset: ${weatherDataArray[i].sunset}`);
+      // divBody.append(sunsetP);
 
-      var moonphaseP = $('<p>').text(`Moonphase: ${weatherArray[i].moonphase}`);
-      divBody.append(moonphaseP);
+      var moonphaseP = $('<p>').text(`Moonphase: ${weatherDataArray[i].moonphase}`);
+      divBody.append(divIcon, conditionsP, cloudcoverP, sunsetP, moonphaseP);
+      console.log(divBody);
     };
   })
   .catch(function(error) {
@@ -111,4 +112,3 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 // function calls
 backgroundImg();
 zipSearch();
-weatherForecast();
