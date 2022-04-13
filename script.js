@@ -110,8 +110,40 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 }
 
 // icon function if statement
-function getIcon (){
-
+function getIcon() {
+    if (data[0].icon = snow) {
+      $(divIcon).innerHTML("./weathericons/snow.png")
+    } else if (data[0].icon = snow-showers-day) {
+      $(divIcon).innerHTML("./weathericons/snow-showers-day.png")
+    } else if (data[0].icon = snow-showers-night) {
+      $(divIcon).innerHTML("./weathericons/snow-showers-night.png")
+    } else if (data[0].icon = thunder-rain) {
+      $(divIcon).innerHTML("./weathericons/thunder-rain.png")
+    } else if (data[0].icon = thunder-showers-day) {
+      $(divIcon).innerHTML("./weathericons/thunder-showers-day.png")
+    } else if (data[0].icon = thunder-showers-night) {
+      $(divIcon).innerHTML("./weathericons/thunder-showers-night.png")
+    } else if (data[0].icon = rain) {
+      $(divIcon).innerHTML("./weathericons/rain.png")
+    } else if (data[0].icon = showers-day) {
+      $(divIcon).innerHTML("./weathericons/showers-day.png")
+    } else if (data[0].icon = showers-night) {
+      $(divIcon).innerHTML("./weathericons/showers-night.png")
+    } else if (data[0].icon = fog) {
+      $(divIcon).innerHTML("./weathericons/fog.png")
+    } else if (data[0].icon = wind) {
+      $(divIcon).innerHTML("./weathericons/wind.png")
+    } else if (data[0].icon = cloudy) {
+      $(divIcon).innerHTML("./weathericons/cloudy.png")
+    } else if (data[0].icon = partly-cloudy-day) {
+      $(divIcon).innerHTML("./weathericons/partly-cloudy-day.png")
+    } else if (data[0].icon = partly-cloudy-night) {
+      $(divIcon).innerHTML("./weathericons/partly-cloudy-night.png")
+    } else if (data[0].icon = clear-day) {
+      $(divIcon).innerHTML("./weathericons/clear-day.png")
+    } else if (data[0].icon = clear-night) {
+      $(divIcon).innerHTML("./weathericons/clear-night.png")
+    }
 }
 
 // function calls
