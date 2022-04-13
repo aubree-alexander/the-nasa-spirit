@@ -53,7 +53,7 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 
     var forecastArray = data.days;
     var weatherDataArray = [];
-    // console.log(forecastArray);
+    console.log(forecastArray);
 
     $.each(forecastArray, function(i, data) {
         weatherInfo = {
@@ -65,7 +65,7 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
             moonphase: data.moonphase
         };
         weatherDataArray.push(weatherInfo);
-        // console.log(weatherInfo);
+        console.log(weatherInfo);
     });
     
     for (var i = 0; i < 5; i++) {
@@ -87,8 +87,9 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 
       var divIcon = $('<img>');
       divIcon.attr('class', 'icon');
-      divIcon.attr('src', weatherDataArray[i].icon);
+      divIcon.attr('src', getIcon());
       // divBody.append(divIcon);
+      console.log(weatherDataArray);
 
       var conditionsP = $('<p>').text(`Conditions: ${weatherDataArray[i].conditions}.`);
       // divBody.append(conditionsP);
@@ -101,12 +102,16 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 
       var moonphaseP = $('<p>').text(`Moonphase: ${weatherDataArray[i].moonphase}`);
       divBody.append(divIcon, conditionsP, cloudcoverP, sunsetP, moonphaseP);
-      console.log(divBody);
     };
   })
   .catch(function(error) {
     console.log(error);
   });
+}
+
+// icon function if statement
+function getIcon (){
+
 }
 
 // function calls
