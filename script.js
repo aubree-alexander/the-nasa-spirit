@@ -12,7 +12,7 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${photo_key}&count=1`)
         return repsonse.json()
     })
     .then(function (data) {
-      console.log(data)
+      //console.log(data)
         $("#nasaExplain").html(data[0].explanation);
         $("#dateHolder").html(data[0].date);
         $("#photoHolder").find('img').attr("src", data[0].hdurl);
@@ -35,7 +35,7 @@ $('#search').click(function(event){
     };
     zipHistory.push(zipCode);
     localStorage.setItem('zipCode', JSON.stringify(zipHistory));
-    console.log(event);
+    //console.log(event);
 
     // Once we are able to fetch all the right weather data we will call the function below to generate the desired zipcode and can remove weatherForecast() at the bottom of the page
     weatherForecast()
@@ -53,7 +53,7 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
 
     var forecastArray = data.days;
     var weatherDataArray = [];
-    console.log(forecastArray);
+    //console.log(forecastArray);
 
     $.each(forecastArray, function(i, data) {
         weatherInfo = {
@@ -65,7 +65,7 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
             moonphase: data.moonphase
         };
         weatherDataArray.push(weatherInfo);
-        console.log(weatherInfo);
+        //console.log(weatherInfo);
     });
     
     for (var i = 0; i < 5; i++) {
@@ -89,7 +89,7 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
       divIcon.attr('class', 'icon');
       divIcon.attr('src', getIcon());
       // divBody.append(divIcon);
-      console.log(weatherDataArray);
+      //console.log(weatherDataArray);
 
       var conditionsP = $('<p>').text(`Conditions: ${weatherDataArray[i].conditions}.`);
       // divBody.append(conditionsP);
@@ -103,48 +103,81 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
       var moonphaseP = $('<p>').text(`Moonphase: ${weatherDataArray[i].moonphase}`);
       divBody.append(divIcon, conditionsP, cloudcoverP, sunsetP, moonphaseP);
     };
+
+    // icon function if statement
+    function getIcon() {
+      if (data.days[0].icon == "snow") {
+        //$(divIcon).html("./weathericons/snow.png")
+        return "./weathericons/snow.png";
+
+      } else if (data.days[0].icon == "snow-showers-day") {
+        //$(divIcon).html("./weathericons/snow-showers-day.png")
+        return "./weathericons/snow-showers-day.png"
+
+      } else if (data.days[0].icon == "snow-showers-night") {
+        //$(divIcon).html("./weathericons/snow-showers-night.png")
+        return "./weathericons/snow-showers-night.png"
+
+      } else if (data.days[0].icon == "thunder-rain") {
+        //$(divIcon).html("./weathericons/thunder-rain.png")
+        return "./weathericons/thunder-rain.png"
+
+      } else if (data.days[0].icon == "thunder-showers-day") {
+        //$(divIcon).html("./weathericons/thunder-showers-day.png")
+        return "./weathericons/thunder-showers-day.png"
+
+      } else if (data.days[0].icon == "thunder-showers-night") {
+        //$(divIcon).html("./weathericons/thunder-showers-night.png")
+        return "./weathericons/thunder-showers-night.png"
+
+      } else if (data.days[0].icon == "rain") {
+        //$(divIcon).html("./weathericons/rain.png");
+        return "./weathericons/rain.png"
+
+      } else if (data.days[0].icon == "showers-day") {
+        //$(divIcon).html("./weathericons/showers-day.png")
+        return "./weathericons/showers-day.png"
+
+      } else if (data.days[0].icon == "showers-night") {
+        //$(divIcon).html("./weathericons/showers-night.png")
+        return "./weathericons/showers-night.png"
+      
+      } else if (data.days[0].icon == "fog") {
+        //$(divIcon).html("./weathericons/fog.png")
+        return "./weathericons/fog.png"
+
+      } else if (data.days[0].icon == "wind") {
+        //$(divIcon).html("./weathericons/wind.png")
+        return "./weathericons/wind.png"
+
+      } else if (data.days[0].icon == "cloudy") {
+        //$(divIcon).html("./weathericons/cloudy.png")
+        return "./weathericons/cloudy.png"
+
+      } else if (data.days[0].icon == "partly-cloudy-day") {
+        //$(divIcon).html("./weathericons/partly-cloudy-day.png")
+        return "./weathericons/partly-cloudy-day.png"
+
+      } else if (data.days[0].icon == "partly-cloudy-night") {
+        //$(divIcon).html("./weathericons/partly-cloudy-night.png")
+        return "./weathericons/partly-cloudy-night.png"
+
+      } else if (data.days[0].icon == "clear-day") {
+        //$(divIcon).html("./weathericons/clear-day.png")
+        return "./weathericons/clear-day.png"
+        
+      } else if (data.days[0].icon == "clear-night") {
+        //$(divIcon).html("./weathericons/clear-night.png")
+        return "./weathericons/clear-night.png"
+      
+      }
+    }
   })
   .catch(function(error) {
     console.log(error);
   });
 }
 
-// icon function if statement
-function getIcon() {
-    if (data[0].icon = snow) {
-      $(divIcon).innerHTML("./weathericons/snow.png")
-    } else if (data[0].icon = snow-showers-day) {
-      $(divIcon).innerHTML("./weathericons/snow-showers-day.png")
-    } else if (data[0].icon = snow-showers-night) {
-      $(divIcon).innerHTML("./weathericons/snow-showers-night.png")
-    } else if (data[0].icon = thunder-rain) {
-      $(divIcon).innerHTML("./weathericons/thunder-rain.png")
-    } else if (data[0].icon = thunder-showers-day) {
-      $(divIcon).innerHTML("./weathericons/thunder-showers-day.png")
-    } else if (data[0].icon = thunder-showers-night) {
-      $(divIcon).innerHTML("./weathericons/thunder-showers-night.png")
-    } else if (data[0].icon = rain) {
-      $(divIcon).innerHTML("./weathericons/rain.png")
-    } else if (data[0].icon = showers-day) {
-      $(divIcon).innerHTML("./weathericons/showers-day.png")
-    } else if (data[0].icon = showers-night) {
-      $(divIcon).innerHTML("./weathericons/showers-night.png")
-    } else if (data[0].icon = fog) {
-      $(divIcon).innerHTML("./weathericons/fog.png")
-    } else if (data[0].icon = wind) {
-      $(divIcon).innerHTML("./weathericons/wind.png")
-    } else if (data[0].icon = cloudy) {
-      $(divIcon).innerHTML("./weathericons/cloudy.png")
-    } else if (data[0].icon = partly-cloudy-day) {
-      $(divIcon).innerHTML("./weathericons/partly-cloudy-day.png")
-    } else if (data[0].icon = partly-cloudy-night) {
-      $(divIcon).innerHTML("./weathericons/partly-cloudy-night.png")
-    } else if (data[0].icon = clear-day) {
-      $(divIcon).innerHTML("./weathericons/clear-day.png")
-    } else if (data[0].icon = clear-night) {
-      $(divIcon).innerHTML("./weathericons/clear-night.png")
-    }
-}
 
 // function calls
 backgroundImg();
