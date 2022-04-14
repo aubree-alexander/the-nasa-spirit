@@ -28,7 +28,7 @@
 }
 
 .form-control {
-    opacity: 50%;
+    opacity: 100%;
 }
 
 #weather-box {
@@ -83,5 +83,7 @@
 .icon {
     margin: auto;
 }
+
+
 
 
