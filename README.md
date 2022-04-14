@@ -6,11 +6,11 @@ Two APIs are utilized for this application: NASA's Picture of the Day API and Vi
 Tailwinds was also utilized in the CSS stylings. 
 
  # Sample of Deployed Application
-# ![Portfolio Layout](./nasa-spirit-screenshot.png)
+# ![Portfolio Layout](./nasa-spirit-screenshot.jpg)
 
 The project will populated with a random POTD from NASA's API. The End User will be prompted to enter in a zip code of their choice. At the bottom of the page a description of the photo will be pulled from the API, which will allow the user to discern what is being shown on the screen.
 
-(((Screenshot of page with weather data here)))
+![Portfolio Layout](nasa-spirit-screenshot2.jpg)
 
 This page will show the current weather as well as the future forcast for the area that the end user entered into the text field from the home page. 
 
