@@ -3,7 +3,6 @@
 }
 
 #mainForm {
-    background-color: rgba(181, 213, 214, 0.57);
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -29,11 +28,11 @@
 }
 
 .form-control {
-    opacity: 50%;
+    opacity: 100%;
 }
 
 #weather-box {
-    background-color: rgba(181, 213, 214, 0.57);
+    background-color: rgba(181, 213, 214, 255);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -43,13 +42,15 @@
     font-size:xx-large;
     opacity: 75%;
     text-align: center;
-    
-    
+    align-items: center;
+    flex-direction: center;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
 .zipCode {
-    background-color: rgba(181, 213, 214, 0.57);
+    background-color: rgba(181, 213, 214, 255);
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -57,19 +58,19 @@
     border: 3px solid rgb(237, 240, 237);
     padding: 20px;
     font-size:large;
-    opacity: 200%;
+    opacity: 75%;
     
 
 }
 
 .card-body {
-    background-color: rgba(181, 213, 214, 0.57);
+    background-color: rgba(181, 213, 214, 255);
     border-radius: 5px;
     width: 100%;
     border: 3px solid rgb(237, 240, 237);
     padding: 20px;
     font-size:large;
-    opacity: 100%;
+    opacity: 75%;
     height: 275px;
     
 }
@@ -78,5 +79,11 @@
     text-align: center;
     padding-top: 30px;
 }
+
+.icon {
+    margin: auto;
+}
+
+
 
 
