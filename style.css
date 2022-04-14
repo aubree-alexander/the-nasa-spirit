@@ -43,8 +43,10 @@
     font-size:xx-large;
     opacity: 75%;
     text-align: center;
-    
-    
+    align-items: center;
+    flex-direction: center;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
