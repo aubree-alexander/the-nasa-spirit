@@ -70,8 +70,8 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
     
     for (var i = 0; i < 5; i++) {
       var divCard = $('<div>');
-      divCard.attr('class', 'max-w-sm rounded overflow-hidden shadow-lg');
-      divCard.attr('style', 'max-width: 400px;');
+      divCard.attr('class', 'max-w-sm rounded shadow-lg' );
+      divCard.attr('style', 'max-width: 15%; display: inline-block; margin: 0 5px; vertical-align:bottom;');
       forecastContainer.append(divCard);
 
       var divHeader = $('<div>');
@@ -84,7 +84,7 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
       var divBody = $('<div>');
       divBody.attr('class', 'card-body');
       divCard.append(divBody);
-
+      divBody.append(divHeader);
       var divIcon = $('<img>');
       divIcon.attr('class', 'icon');
       divIcon.attr('src', getIcon());
