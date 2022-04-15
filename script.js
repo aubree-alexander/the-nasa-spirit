@@ -65,13 +65,20 @@ function getHistory() {
       };
 
   // displays city info once histBtn is clicked
-  $('#search').click(function(event) {
-    console.log();
-      event.preventDefault();
-      zipCode = $(this).text();
-      forecastContainer.empty();
-      weatherForecast();
-  });
+  $('.histBtn').each(function() {
+    $('.histBtn').click(function(event) {
+        event.preventDefault();
+        $("#forecastContainer").empty();
+        var histSearch = $(".histBtn").text()
+        console.log(histSearch)
+        
+        
+        // weatherForecast(histSearch)
+        // zipCode = $(this).text();
+        // forecastContainer.empty();
+        // weatherForecast();
+    });
+  })
 };
 
 // to pull and display weather forecast
