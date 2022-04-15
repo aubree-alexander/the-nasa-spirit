@@ -108,67 +108,67 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
     function getIcon() {
       if (data.days[i].icon == "snow") {
         //$(divIcon).html("./weathericons/snow.png")
-        return "./weathericons/snow.png";
+        return "./weatherIcons/snow.png";
 
       } else if (data.days[i].icon == "snow-showers-day") {
         //$(divIcon).html("./weathericons/snow-showers-day.png")
-        return "./weathericons/snow-showers-day.png"
+        return "./weatherIcons/snow-showers-day.png"
 
       } else if (data.days[i].icon == "snow-showers-night") {
         //$(divIcon).html("./weathericons/snow-showers-night.png")
-        return "./weathericons/snow-showers-night.png"
+        return "./weatherIcons/snow-showers-night.png"
 
       } else if (data.days[i].icon == "thunder-rain") {
         //$(divIcon).html("./weathericons/thunder-rain.png")
-        return "./weathericons/thunder-rain.png"
+        return "./weatherIcons/thunder-rain.png"
 
       } else if (data.days[i].icon == "thunder-showers-day") {
         //$(divIcon).html("./weathericons/thunder-showers-day.png")
-        return "./weathericons/thunder-showers-day.png"
+        return "./weatherIcons/thunder-showers-day.png"
 
       } else if (data.days[i].icon == "thunder-showers-night") {
         //$(divIcon).html("./weathericons/thunder-showers-night.png")
-        return "./weathericons/thunder-showers-night.png"
+        return "./weatherIcons/thunder-showers-night.png"
 
       } else if (data.days[i].icon == "rain") {
         //$(divIcon).html("./weathericons/rain.png");
-        return "./weathericons/rain.png"
+        return "./weatherIcons/rain.png"
 
       } else if (data.days[i].icon == "showers-day") {
         //$(divIcon).html("./weathericons/showers-day.png")
-        return "./weathericons/showers-day.png"
+        return "./weatherIcons/showers-day.png"
 
       } else if (data.days[i].icon == "showers-night") {
         //$(divIcon).html("./weathericons/showers-night.png")
-        return "./weathericons/showers-night.png"
+        return "./weatherIcons/showers-night.png"
       
       } else if (data.days[i].icon == "fog") {
         //$(divIcon).html("./weathericons/fog.png")
-        return "./weathericons/fog.png"
+        return "./weatherIcons/fog.png"
 
       } else if (data.days[i].icon == "wind") {
         //$(divIcon).html("./weathericons/wind.png")
-        return "./weathericons/wind.png"
+        return "./weatherIcons/wind.png"
 
       } else if (data.days[i].icon == "cloudy") {
         //$(divIcon).html("./weathericons/cloudy.png")
-        return "./weathericons/cloudy.png"
+        return "./weatherIcons/cloudy.png"
 
       } else if (data.days[i].icon == "partly-cloudy-day") {
         //$(divIcon).html("./weathericons/partly-cloudy-day.png")
-        return "./weathericons/partly-cloudy-day.png"
+        return "./weatherIcons/partly-cloudy-day.png"
 
       } else if (data.days[i].icon == "partly-cloudy-night") {
         //$(divIcon).html("./weathericons/partly-cloudy-night.png")
-        return "./weathericons/partly-cloudy-night.png"
+        return "./weatherIcons/partly-cloudy-night.png"
 
       } else if (data.days[i].icon == "clear-day") {
         //$(divIcon).html("./weathericons/clear-day.png")
-        return "./weathericons/clear-day.png"
+        return "./weatherIcons/clear-day.png"
         
       } else if (data.days[i].icon == "clear-night") {
         //$(divIcon).html("./weathericons/clear-night.png")
-        return "./weathericons/clear-night.png"
+        return "./weatherIcons/clear-night.png"
       
       }
     }
