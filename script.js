@@ -3,6 +3,7 @@ var photo_key = 'UaWaPX64ifKiFlemQ73fWGXNMRw5uwk1H5Bt5Feg';
 var weather_key = 'CECYA3AQSMBYUHF9N4VMZ53CK';
 var zipCode = "53716";
 var zipHistory = [];
+var historyContainer = $('.cityHistory');
 var forecastContainer =$("#forecastContainer");
 
 // display nasa background image
@@ -36,10 +37,41 @@ $('#search').click(function(event){
     zipHistory.push(zipCode);
     localStorage.setItem('zipCode', JSON.stringify(zipHistory));
     //console.log(event);
+    forecastContainer.empty();
+    getHistory();
 
     // Once we are able to fetch all the right weather data we will call the function below to generate the desired zipcode and can remove weatherForecast() at the bottom of the page
     weatherForecast()
 });
+};
+
+// function to display previously searched cities
+function getHistory() {
+  historyContainer.empty();
+
+  for (var i = 0; i < zipHistory.length; i++) {
+      var rowEl = $('<row>');
+      var btnEl = $('<button>').text(`${zipHistory[i]}`);
+
+      rowEl.addClass('row hisBtnRow');
+      btnEl.addClass('btn btn-outline-secondary histBtn');
+      btnEl.attr('type', 'button');
+      btnEl.attr('id', 'search');
+
+      historyContainer.prepend(rowEl);
+      rowEl.append(btnEl);
+    } if (!zipCode) {
+       return;
+      };
+
+  // displays city info once histBtn is clicked
+  $('#search').click(function(event) {
+    console.log();
+      event.preventDefault();
+      zipCode = $(this).text();
+      forecastContainer.empty();
+      weatherForecast();
+  });
 };
 
 // to pull and display weather forecast

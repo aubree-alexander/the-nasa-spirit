@@ -40,6 +40,7 @@
     border: 3px solid rgb(237, 240, 237);
     padding: 100px;
     font-size:xx-large;
+    font-weight:bolder;
     opacity: 75%;
     text-align: center;
     align-items: center;
@@ -48,19 +49,26 @@
     margin-right: auto;
 
 }
+#weather-box button {
+    font-weight: bold;
+    background-color: rgb(34, 87, 144);
+    margin: 20px;
+    border-radius: 20px;
+    opacity: 100%;
+}
+
+#weather-box button:hover {
+    background-color: blueviolet;
+}
 
 .zipCode {
     background-color: rgba(181, 213, 214, 255);
     border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    width: 20%;
+    width: 60%;
     border: 3px solid rgb(237, 240, 237);
     padding: 20px;
     font-size:large;
     opacity: 75%;
-    
-
 }
 
 .card-body {
@@ -71,7 +79,7 @@
     padding: 20px;
     font-size:large;
     opacity: 75%;
-    height: 275px;
+    height: 100%;
     
 }
 
@@ -82,6 +90,18 @@
 
 .icon {
     margin: auto;
+}
+
+.histBtn {
+    font-weight: bold;
+    background-color:  rgb(34, 87, 144);
+    border-radius: 20px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.histBtn:hover {
+    background-color: blueviolet;
 }
 
 
