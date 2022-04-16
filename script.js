@@ -25,7 +25,16 @@ fetch(`https://api.nasa.gov/planetary/apod?api_key=${photo_key}&count=1`)
     });
 }
 
-//test test 2
+
+function loadHistory() {
+  if (localStorage.getItem('zipCode')) {
+    zipHistory = JSON.parse(localStorage.getItem('zipCode'))
+  } else {
+    localStorage.setItem('zipCode', JSON.stringify(zipHistory))
+  }
+
+}
+
 
 // api key for weather api
 function zipSearch(){
@@ -35,13 +44,14 @@ $('#search').click(function(event){
     if (zipCode === "") {
         return;
     };
-    zipHistory.push(zipCode);
-    localStorage.setItem('zipCode', JSON.stringify(zipHistory));
-    //console.log(event);
     forecastContainer.empty();
-    getHistory();
+    if (zipHistory.length < 4) {
+      zipHistory.push(zipCode);
+      localStorage.setItem('zipCode', JSON.stringify(zipHistory));
+     
+      getHistory();
+    }
 
-    // Once we are able to fetch all the right weather data we will call the function below to generate the desired zipcode and can remove weatherForecast() at the bottom of the page
     weatherForecast()
 });
 };
@@ -65,20 +75,23 @@ function getHistory() {
        return;
       };
 
+
   // displays city info once histBtn is clicked
- 
-    $('.histBtn').click(function(event) {
-      $('.histBtn').each(function() {
-            event.preventDefault();
-            $("#forecastContainer").empty();
-            var histSearch = $(".histBtn").text()
-            console.log(histSearch)
-            // weatherForecast(histSearch)
-            // zipCode = $(this).text();
-            // forecastContainer.empty();
-            // weatherForecast();
-        });
-    })
+  $('.histBtn').click(function(event) {
+    event.preventDefault();
+      zipCode = $(this).text();
+      console.log(zipCode)
+      if (zipCode === "") {
+          return;
+      };
+      localStorage.setItem('zipCode', JSON.stringify(zipHistory));
+      forecastContainer.empty();
+      getHistory();
+
+      weatherForecast()
+
+  })
+
 };
 
 // to pull and display weather forecast
@@ -220,3 +233,5 @@ console.log(error);
 // function calls
 backgroundImg();
 zipSearch();
+loadHistory();
+getHistory();
