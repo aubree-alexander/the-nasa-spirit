@@ -16,20 +16,23 @@
 <body>
 
     <section id="jumbotron"></section>
-    <main class="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12 searchSection">
+    <main class="mx-auto relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12 searchSection">
 
         <section id="weather-box">
-            <h3 class="mx-auto font-size" class="weather">What is the weather like at...</h3>
-            
+            <h3 class="weather">
+                What is the weather like at...
+            </br>
+            <button class="btn btn-blue" onClick="window.location.reload();">Change background image</button>
+            </h3>
         </section>
 
         <section id="formHolder">
-            <form id="mainForm" class=zipCode>
-                
+            <form id="mainForm" class="zipCode">
                 <div class="mx-auto input-group-append">
-                    <input name="zipCodeInput" type="text" class="form-control mx-auto zipCodeInput, " id="zipCodeInput" placeholder="Enter Zip Code Here..." autofocus="true"/>
-                    <button class="btn btn-blue" id="search" type="submit"><i class="fas fa-search"></i></button>
-                
+                    <input name="zipCodeInput" type="text" class="form-control mx-auto zipCodeInput, " id="zipCodeInput" placeholder="Enter Zip Code or Location..." autofocus="true"/>
+                    <button class="btn btn-blue" id="search" type="submit"><i class="mx-auto fas fa-search"></i></button>
+                    
+                    <div class="mx-auto cityHistory"></div>
                 </div>
             </form>
         </section>
