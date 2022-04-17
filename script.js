@@ -123,7 +123,7 @@ fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/service
     for (var i = 0; i < 5; i++) {
       var divCard = $('<div>');
       divCard.attr('class', 'max-w-sm rounded shadow-lg' );
-      divCard.attr('style', 'max-width: 15%; display: inline-block; margin: 0 5px; vertical-align:bottom;');
+      divCard.attr('style', 'max-width: 15%; display: inline-block; margin: 0 5px; vertical-align:bottom; min-width:250px; margin-bottom:30px;');
       forecastContainer.append(divCard);
 
       var divHeader = $('<div>');
