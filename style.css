@@ -49,15 +49,21 @@
     margin-right: auto;
 
 }
-#weather-box button {
-    font-weight: bold;
-    background-color: rgb(34, 87, 144);
-    margin: 20px;
-    opacity: 100%;
-    padding: 3px;
+
+#changeBGHolder {
+    display: flex;
 }
 
-#weather-box button:hover {
+#changeBG {
+    font-weight: bold;
+    background-color: rgb(34, 87, 144);
+    opacity: 100%;
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+}
+
+#changeBG:hover {
     background-color: blueviolet;
     opacity: 100%;
     transform: scale(1.03);
