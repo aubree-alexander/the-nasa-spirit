@@ -16,20 +16,20 @@
 <body>
 
     <section id="jumbotron"></section>
-    <main class="mx-auto relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12 searchSection">
+    <main class="mx-auto relative flex min-h-screen flex-col justify-center overflow-hidden searchSection">
 
         <section id="weather-box">
             <h3 class="weather">
                 What is the weather like at...
             </br>
-            <button class="btn btn-blue" onClick="window.location.reload();">Change background image</button>
+            <button class="btn btn-blue text-base rounded-lg" onClick="window.location.reload();">Change background image</button>
             </h3>
         </section>
 
         <section id="formHolder">
             <form id="mainForm" class="zipCode">
                 <div class="mx-auto input-group-append">
-                    <input name="zipCodeInput" type="text" class="form-control mx-auto zipCodeInput, " id="zipCodeInput" placeholder="Enter Zip Code or Location..." autofocus="true"/>
+                    <input name="zipCodeInput" type="text" class="form-control mx-auto zipCodeInput, " id="zipCodeInput" placeholder="Enter Zip or Location..." autofocus="true"/>
                     <button class="btn btn-blue" id="search" type="submit"><i class="mx-auto fas fa-search"></i></button>
                     
                     <div class="mx-auto cityHistory"></div>
@@ -43,7 +43,7 @@
     </main>
     <section id="explanationHolder" class="stackTop">
         <h3 id="photoDescriptionIntro">Photo description:</h3>
-        <div class="container mx-auto text-white" id="nasaExplain"></div>
+        <div class="text-center container mx-auto text-white" id="nasaExplain"></div>
     </section>
 
 

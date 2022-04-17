@@ -53,12 +53,13 @@
     font-weight: bold;
     background-color: rgb(34, 87, 144);
     margin: 20px;
-    border-radius: 20px;
     opacity: 100%;
+    padding: 3px;
 }
 
 #weather-box button:hover {
     background-color: blueviolet;
+    opacity: 100%;
 }
 
 .zipCode {
@@ -95,13 +96,13 @@
 .histBtn {
     font-weight: bold;
     background-color:  rgb(34, 87, 144);
-    border-radius: 20px;
     padding: 5px;
     margin: 10px;
 }
 
 .histBtn:hover {
     background-color: blueviolet;
+    opacity: 100%;
 }
 
 

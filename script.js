@@ -65,7 +65,7 @@ function getHistory() {
       var btnEl = $('<button>').text(`${zipHistory[i]}`);
 
       rowEl.addClass('row hisBtnRow');
-      btnEl.addClass('btn btn-outline-secondary histBtn');
+      btnEl.addClass('btn btn-outline-secondary rounded-xl histBtn');
       btnEl.attr('type', 'button');
       btnEl.attr('id', 'search');
 
