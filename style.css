@@ -60,6 +60,8 @@
 #weather-box button:hover {
     background-color: blueviolet;
     opacity: 100%;
+    transform: scale(1.03);
+    transition: all 0.15s ease-in-out;
 }
 
 .zipCode {
@@ -103,6 +105,8 @@
 .histBtn:hover {
     background-color: blueviolet;
     opacity: 100%;
+    transform: scale(1.03);
+    transition: all 0.15s ease-in-out;
 }
 
 
