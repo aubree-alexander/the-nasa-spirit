@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--tailwind CSS CDN-->
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"/>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <!--Google fonts-->
@@ -21,11 +22,10 @@
         <section id="weather-box">
             <h3 class="weather">
                 What is the weather like at...
-            </br>
-            
             </h3>
         </section>
 
+        <!--main form-->
         <section id="formHolder">
             <form id="mainForm" class="zipCode">
                 <div class="mx-auto input-group-append">
@@ -37,7 +37,7 @@
             </form>
         </section>
 
-        
+        <!--5-day forecast goes here-->        
         <div class="row mx-auto" id="forecastContainer"></div>
 
         <div id="changeBGHolder">
@@ -46,13 +46,14 @@
         </div>
         
     </main>
+    <!--photo explanation goes here-->
     <section id="explanationHolder" class="stackTop">
         <h3 id="photoDescriptionIntro">Photo description:</h3>
         <div class="text-center container mx-auto text-white" id="nasaExplain"></div>
     </section>
 
 
-
+    <!--jQuery CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
